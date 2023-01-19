@@ -4,13 +4,19 @@ public class BankAccount {
 
 	private int accountNo;
 	private int balance;
-	private AccountType accType;
+	private String accType;
 	private String status;
 	
 	
-	public BankAccount(int accountNo, int balance, AccountType accType, String status) {
+	public BankAccount(int accountNo, int balance, String accType, String status) {
 		super();
 		this.accountNo = accountNo;
+		this.balance = balance;
+		this.accType = accType;
+		this.status = status;
+	}
+	public BankAccount(int balance, String accType, String status) {
+		super();
 		this.balance = balance;
 		this.accType = accType;
 		this.status = status;
@@ -28,10 +34,10 @@ public class BankAccount {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
-	public AccountType getAccType() {
+	public String getAccType() {
 		return accType;
 	}
-	public void setAccType(AccountType accType) {
+	public void setAccType(String accType) {
 		this.accType = accType;
 	}
 	public String getStatus() {

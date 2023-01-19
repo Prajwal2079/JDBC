@@ -9,11 +9,11 @@ public interface AccountDAL {
 	
 	List<BankAccount> getAllAccounts() throws SQLException;
 	
-	void insertAccount(BankAccount account);
+	int insertAccount(BankAccount account) throws SQLException;
 	
-	void deleteAccountByNo(int accNo);
+	int deleteAccountByNo(int accNo) throws SQLException;
 	
-	void updateAccount(int accNo,BankAccount account);
+	int updateAccount(int accNo,BankAccount account);
 	
 	BankAccount getAccountByNo(int accNo);
 

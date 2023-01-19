@@ -9,7 +9,7 @@ import com.pojo.BankAccount;
 
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
 		try(Scanner sc = new Scanner(System.in);){
 			int choice = 0;
 			AccountDALImp accounts = new AccountDALImp();
@@ -17,8 +17,8 @@ public class Driver {
 			do {
 				System.out.println("1:Show all Accounts\r\n" + 
 						"2:Add New Account\r\n" + 
-						"3:Update/Edit Account\r\n" + 
-						"4:Delete Account\r\n" + 
+						"3:Delete Account\r\n" + 
+						"4:Update/Edit Account\r\n" + 
 						"5:Deposite for specific account\r\n" + 
 						"6:Withdraw for specific account\r\n" + 
 						"7:Transfer Money from one account to Other Account(use stored procedure)"+
@@ -33,9 +33,17 @@ public class Driver {
 					allAccounts.forEach(acc->System.out.println(acc));
 					break;
 				case 2:
-					
+					System.out.println("Enter balance,AccountTypeand status");
+					BankAccount acc = new BankAccount(sc.nextInt(),sc.next(),sc.next());
+					if(accounts.insertAccount(acc)>0) {
+						System.out.println("Account added successfully");
+					}
 					break;
 				case 3:
+					System.out.println("Enter accountNo to be deleted");
+					if(accounts.deleteAccountByNo(sc.nextInt())>0) {
+						System.out.println("Account deleted succesfully");
+					}
 					break;
 				case 4:
 					break;
